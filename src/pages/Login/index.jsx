@@ -1,4 +1,4 @@
-import {useState} from 'react'
+import React, {useState} from "react";
 import {
     Button,
     FormControl,
@@ -7,25 +7,25 @@ import {
     InputGroup,
     Modal,
     ModalDialog
-} from 'react-bootstrap';
+} from "react-bootstrap";
 import {useNavigate} from "react-router-dom";
 
 const revertMargin = {
-    marginBottom: 'revert'
+    marginBottom: "revert"
 };
 
 function Login() {
-    const [isShow, setShow] = useState(true)
-    const navigate = useNavigate()
-    const onClose = (e) => {
+    const [isShow, setShow] = useState(true);
+    const navigate = useNavigate();
+    const onClose = () => {
         navigate("/");
-    }
-    const onShow = (e) => {
-        setShow(true)
-    }
-    const onSubmit = (e) => {
+    };
+    const onShow = () => {
+        setShow(true);
+    };
+    const onSubmit = () => {
 
-    }
+    };
     return (
         <ModalDialog className="modal-dialog">
             <Button variant="primary" onClick={onShow}>Show</Button>
@@ -69,7 +69,7 @@ function Login() {
                 </Modal.Footer>
             </Modal>
         </ModalDialog>
-    )
+    );
 }
 
-export default Login
+export default Login;

@@ -1,5 +1,5 @@
 // lean props and state
-import {useEffect, useState} from 'react'
+import React, {useEffect, useState} from "react";
 // use props and state also
 // export default function Clock() {
 //     const ClockDesign = (thisIsProps) => {
@@ -23,14 +23,13 @@ import {useEffect, useState} from 'react'
 export default function Clock() {
     let [thisIsState, setThisIsState] = useState(new Date());
     useEffect(() => {
-        // Update the document title using the browser API
         const interval = setInterval(
             () => {
                 setThisIsState(new Date());
-            }, 1000)
+            }, 1000);
         return function cleanup() {
-            clearInterval(interval)
-        }
+            clearInterval(interval);
+        };
     }, []);
 
     return (

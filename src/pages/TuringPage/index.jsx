@@ -1,47 +1,21 @@
 import Clock from "../../components/clock";
-import {useCallback, useEffect, useState} from "react";
-
-const Cau2 = () => {
-    const [userText, setUserText] = useState('')
-
-    function handleOneKey(event) {
-        const {key, keyCode} = event;
-        console.log(keyCode)
-        if (keyCode === 32 || (keyCode >= 65 && keyCode <= 90)) {
-            setUserText(`${userText}${key}`);
-        }
-        if (keyCode === 8) {
-            setUserText(`${userText.slice(0, -1)}`);
-        }
-    }
-
-    const handlerUserKeyPress = useCallback(event => {
-        handleOneKey(event)
-    }, [userText]);
-
-    // const handlerUserKeyPress = event => {
-    //     handleOneKey(event)
-    // }
-    useEffect(() => {
-        window.addEventListener('keydown', handlerUserKeyPress);
-        return () => {
-            window.removeEventListener('keydown', handlerUserKeyPress);
-        };
-    })
-
-
-    return (
-        <div>
-            <h1> Typing here: </h1>
-            <blockquote>{userText}</blockquote>
-        </div>
-    )
-}
+import React from "react";
+import Cau2 from "../../components/cau2";
+import {MeMoDemo} from "../../components/useMemo";
+import {useWindowSize} from "../../components/useWindowSize";
 
 
 export default function TuringPage() {
+    console.log(React.version);
+    // const {wSize, setWSize} = useState(useWindowSize());
+    // useEffect(() => {
+    //     setWSize(useWindowSize());
+    // }, [useWindowSize]);
+    const wSize = useWindowSize();
     return <div className={"card card-body"}>
+        WxH: {wSize.width} x {wSize.height}
+        <MeMoDemo/>
         <Cau2/>
         <Clock/>
-    </div>
+    </div>;
 }

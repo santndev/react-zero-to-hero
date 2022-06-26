@@ -1,20 +1,21 @@
-import {memo, useCallback, useState} from 'react'
+import React, {memo, useCallback, useState} from "react";
 
 const storeSet = new Set();
 const Wrap = () => {
+    // eslint-disable-next-line react/prop-types,react/display-name
     const Checkbox = memo(({value, onClick}) => {
         return (
             <>
-                <div style={{cursor: 'pointer'}} onClick={onClick}>
-                    {value ? '☑' : '□'}
+                <div style={{cursor: "pointer"}} onClick={onClick}>
+                    {value ? "☑" : "□"}
                 </div>
             </>
         );
     });
-    console.log('render')
+    console.log("render");
     const [isChecked, setIsChecked] = useState(false);
     const toggleChecked = useCallback(() => {
-        setIsChecked(!isChecked)
+        setIsChecked(!isChecked);
     }, [isChecked]);
     // const toggleChecked = () => setIsChecked(!isChecked)
 
@@ -22,7 +23,7 @@ const Wrap = () => {
 };
 function UseCallback() {
 
-    const [text, setText] = useState('');
+    const [text, setText] = useState("");
     storeSet.add(Wrap);
     console.log(storeSet);
     return (
@@ -34,7 +35,7 @@ function UseCallback() {
 }
 
 
-export default UseCallback
+export default UseCallback;
 
 // function UseCallback() {
 //     const [count, setCount] = useState(0);
